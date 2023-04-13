@@ -52,18 +52,3 @@ MyApp.getInitialProps = async ctx => {
 }
 
 
-import dynamic from 'next/dynamic'
-
-const MyApp = dynamic(
-  () => import('../components/MyApp'),
-  { ssr: false }
-)
-
-export default function App(props) {
-  return <MyApp {...props} />
-}
-
-App.getInitialProps = async () => {
-  const data = await fetch('/api/data')
-  return { data }
-}
