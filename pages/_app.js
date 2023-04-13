@@ -37,34 +37,18 @@ export default function MyApp ({ Component, pageProps, config, locale }) {
   )
 }
 
-// MyApp.getInitialProps = async ctx => {
-//   const config = typeof window === 'object'
-//     ? await fetch('/api/config').then(res => res.json())
-//     : await import('@/lib/server/config').then(module => module.clientConfig)
-
-//   prepareDayjs(config.timezone)
-
-//   return {
-//     ...App.getInitialProps(ctx),
-//     config,
-//     locale: await loadLocale('basic', config.lang)
-//   }
-// }
-
-
-// import { prepareDayjs } from '@/lib/client/dayjs'
-// import { fetchConfig } from '@/lib/server/config'
-// import { loadLocale } from '@/lib/i18n'
-
-export async function getStaticProps() {
-  const config = await fetchConfig()
+MyApp.getInitialProps = async ctx => {
+  const config = typeof window === 'object'
+    ? await fetch('/api/config').then(res => res.json())
+    : await import('@/lib/server/config').then(module => module.clientConfig)
 
   prepareDayjs(config.timezone)
 
   return {
-    props: {
-      config,
-      locale: await loadLocale('basic', config.lang)
-    }
+    ...App.getInitialProps(ctx),
+    config,
+    locale: await loadLocale('basic', config.lang)
   }
 }
+
+
