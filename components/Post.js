@@ -19,6 +19,20 @@ import TableOfContents from '@/components/TableOfContents'
  * @prop {string}   emailHash  - Author email hash (for Gravatar)
  * @prop {boolean} [fullWidth] - Whether in full-width mode
  */
+
+/** bak del
+ <a href={BLOG.socialLink || '#'} className="flex">
+             <Image
+                alt={BLOG.author}
+                width={24}
+                height={24}
+                src={`https://gravatar.com/avatar/${emailHash}`}
+                className="rounded-full"
+              />
+              <p className="ml-2 md:block">{BLOG.author}</p>
+            </a>
+*/
+
 export default function Post (props) {
   const BLOG = useConfig()
   const { post, blockMap, emailHash, fullWidth = false } = props
@@ -39,13 +53,7 @@ export default function Post (props) {
         )}>
           <div className="flex mb-4">
             <a href={BLOG.socialLink || '#'} className="flex">
-              <Image
-                alt={BLOG.author}
-                width={24}
-                height={24}
-                src={`https://gravatar.com/avatar/${emailHash}`}
-                className="rounded-full"
-              />
+              
               <p className="ml-2 md:block">{BLOG.author}</p>
             </a>
             <span className="block">&nbsp;/&nbsp;</span>
