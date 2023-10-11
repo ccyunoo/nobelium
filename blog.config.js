@@ -3,7 +3,7 @@ const BLOG = {
   author: 'Xiaoyun',
   email: 'ccyunoo@gmail.com',
   link: 'http://www.ccyun.com',
-  description: '和风细雨 润物无声',
+  description: '莫舍己道 不扰他心',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/shanghai', // Your Notion posts' date will be interpreted as this timezone. See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
@@ -20,7 +20,7 @@ const BLOG = {
   ogImageGenerateURL: 'https://og-image-craigary.vercel.app', // The link to generate OG image, don't end with a slash
   socialLink: 'https://twitter.com/ccyunoo',
   seo: {
-    keywords: ['看云设计','xiaoyun','NGO CHINA','Blog', 'Website', 'Notion', '看云卷云舒'],
+    keywords: ['看云设计','xiaoyun','NGO CHINA','Blog', 'Website', 'Notion', '看云卷云舒', '产品设计', '产品经理'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
