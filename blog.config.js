@@ -20,7 +20,7 @@ const BLOG = {
   ogImageGenerateURL: 'https://og-image-craigary.vercel.app', // The link to generate OG image, don't end with a slash
   socialLink: 'https://twitter.com/ccyunoo',
   seo: {
-    keywords: ['看云设计','xiaoyun','NGO CHINA','Blog', 'Website', 'Notion', '看云卷云舒', '产品设计', '产品经理'],
+    keywords: ['看云设计','杭州产品设计顾问','杭州移动互联网解决方案','互联网创业', '杭州创业','互联网金融社交社区','大型政务系统建设', '产品设计专家', '资深产品经理' ,'杭州品牌标识设计','青少年编程教育少儿编程教育', 'Xiaoyun´s Weblog','小云的网站','NGO CHINA','Notion','看云卷云舒 莫舍己道不扰他心'],
     googleSiteVerification: 'NOlwfQXgdc5qNPRjvccuGjnTu6Gl-d9e1_m-a8-RdMY' // Remove the value or replace it with your own google site verification code   https://search.google.com/search-console/not-verified?original_url=/search-console/ownership&original_resource_id
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
