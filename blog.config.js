@@ -21,7 +21,7 @@ const BLOG = {
   socialLink: 'https://twitter.com/ccyunoo',
   seo: {
     keywords: ['看云设计','xiaoyun','NGO CHINA','Blog', 'Website', 'Notion', '看云卷云舒', '产品设计', '产品经理'],
-    googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
+    googleSiteVerification: 'NOlwfQXgdc5qNPRjvccuGjnTu6Gl-d9e1_m-a8-RdMY' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
