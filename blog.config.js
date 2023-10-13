@@ -21,7 +21,7 @@ const BLOG = {
   socialLink: 'https://twitter.com/ccyunoo',
   seo: {
     keywords: ['看云设计','xiaoyun','NGO CHINA','Blog', 'Website', 'Notion', '看云卷云舒', '产品设计', '产品经理'],
-    googleSiteVerification: 'NOlwfQXgdc5qNPRjvccuGjnTu6Gl-d9e1_m-a8-RdMY' // Remove the value or replace it with your own google site verification code
+    googleSiteVerification: 'NOlwfQXgdc5qNPRjvccuGjnTu6Gl-d9e1_m-a8-RdMY' // Remove the value or replace it with your own google site verification code   https://search.google.com/search-console/not-verified?original_url=/search-console/ownership&original_resource_id
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
@@ -33,7 +33,7 @@ const BLOG = {
       domainId: '' // e.g '0e2257a8-54d4-4847-91a1-0311ea48cc7b'
     },
     gaConfig: {
-      measurementId: 'G-QKWM2V23VN' // e.g: G-XXXXXXXXXX   
+      measurementId: 'G-QKWM2V23VN' // e.g: G-XXXXXXXXXX    https://analytics.google.com/
     }
   },
   comment: {
