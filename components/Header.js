@@ -13,7 +13,7 @@ const NavBar = () => {
     { id: 1, name: locale.NAV.ABOUT, to: '/about', show: BLOG.showAbout },
     { id: 2, name: locale.NAV.RSS, to: '/feed', show: true },
     { id: 3, name: locale.NAV.SEARCH, to: '/search', show: true },
-    { id: 4, name: 'Google', to: 'https://www.google.com', show: true, external: true } // 新添加的外部链接
+    { id: 4, name: '小云的AI实验室', to: 'http://lab.ccyun.com', show: true, external: true } // 新添加的外部链接
   ]
   return (
     <div className="flex-shrink-0">
