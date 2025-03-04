@@ -95,12 +95,13 @@ export default function Header ({ navBarTitle, fullWidth }) {
     <>
       <div className="observer-element h-4 md:h-12" ref={sentinelRef}></div>
       <div
-       className={`sticky-nav group m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 border-b border-gray-200 dark:border-gray-800 ${  // 添加边框样式
+        className={`sticky-nav group m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 ${
           !fullWidth ? 'max-w-6xl px-4' : 'px-4 md:px-24'
         }`}
         id="sticky-nav"
         ref={navRef}
         onClick={handleClickHeader}
+        style={{ borderBottom: '1px solid #eee' }}
       >
         <svg
           viewBox="0 0 24 24"
