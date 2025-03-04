@@ -46,7 +46,7 @@ export default function Blog({ postsToShow, page, showNext, tags }) {
         
         <div className="md:w-1/4">
           <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">标签</h3>
+            <h3 className="text-xl font-bold mb-4">Tags</h3>
             <div className="flex flex-wrap gap-2">
               {tags.map(tag => (
                 <a
