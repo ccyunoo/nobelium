@@ -42,7 +42,7 @@ export default function Post (props) {
     <article className={cn('flex flex-col', fullWidth ? 'md:px-24' : 'items-center')}>
       <h1 className={cn(
         'w-full font-bold text-3xl text-black dark:text-white',
-        { 'max-w-2xl px-4': !fullWidth }
+        { 'max-w-6xl px-4': !fullWidth }
       )}>
         {post.title}
       </h1>
@@ -75,7 +75,7 @@ export default function Post (props) {
         <div className={fullWidth ? 'flex-1 pr-4' : 'flex-none w-full max-w-6xl px-4'}>
           <NotionRenderer recordMap={blockMap} fullPage={false} darkMode={dark} />
         </div>
-        <div className={cn('order-first lg:order-[unset] w-full lg:w-auto max-w-2xl lg:max-w-[unset] lg:min-w-[160px]', fullWidth ? 'flex-none' : 'flex-1')}>
+        <div className={cn('order-first lg:order-[unset] w-full lg:w-auto max-w-6xl lg:max-w-[unset] lg:min-w-[160px]', fullWidth ? 'flex-none' : 'flex-1')}>
           {/* `65px` is the height of expanded nav */}
           {/* TODO: Remove the magic number */}
           <TableOfContents blockMap={blockMap} className="pt-3 sticky" style={{ top: '65px' }} />
