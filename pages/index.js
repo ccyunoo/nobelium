@@ -22,12 +22,13 @@ export async function getStaticProps() {
 
   // 添加专题数据
   const topics = [
-    { name: 'AILAB', url: 'http://lab.ccyun.com/', description: '实用AI工具推荐' },
-    { name: '趣图', url: 'http://1photo1month.com/lab/instagram/funny/', description: '趣图' },
-    { name: '花开', url: 'http://1photo1month.com/lab/instagram/warm/', description: '花开' },
-    { name: '月图', url: 'http://1photo1month.com/', description: '月图' },
-    { name: '写诗', url: 'http://1photo1month.com/lab/poetry/', description: '写诗' },
-    { name: '放空', url: 'http://1photo1month.com/lab/peace/', description: '放空' }
+    { name: 'AILAB', url: 'http://lab.ccyun.com/', description: 'xiaoyun的AI实验室' },
+    { name: '趣图', url: 'http://1photo1month.com/lab/instagram/funny/', description: '收集有趣味的瞬间' },
+    { name: '花开', url: 'http://1photo1month.com/lab/instagram/warm/', description: '暖心的花朵' },
+    { name: '月图', url: 'http://1photo1month.com/', description: '一月一图记录生活' },
+    { name: '写诗', url: 'http://1photo1month.com/lab/poetry/', description: '写字诗词字帖' },
+    { name: '放空', url: 'http://1photo1month.com/lab/peace/', description: '简单轻音乐' },
+    { name: '有意思的人', url: 'https://www.ccyun.com/bloger', description: '分享友链' }
     
     // 可以继续添加更多专题
   ]
