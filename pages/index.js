@@ -20,18 +20,30 @@ export async function getStaticProps() {
   })
   const tags = Object.entries(tagCount).map(([name, count]) => ({ name, count }))
 
+  // 添加专题数据
+  const topics = [
+    { name: 'AILAB', url: 'http://lab.ccyun.com/', description: '实用AI工具推荐' },
+    { name: '趣图', url: 'http://1photo1month.com/lab/instagram/funny/', description: '趣图' },
+    { name: '花开', url: 'http://1photo1month.com/lab/instagram/warm/', description: '花开' },
+    { name: '月图', url: 'http://1photo1month.com/', description: '月图' },
+    { name: '写诗', url: 'http://1photo1month.com/lab/poetry/', description: '写诗' },
+    { name: '放空', url: 'http://1photo1month.com/lab/peace/', description: '放空' }
+    
+    // 可以继续添加更多专题
+  ]
+
   return {
     props: {
       page: 1,
       postsToShow,
       showNext,
-      tags
+      tags,
+      topics  // 添加到props中
     },
     revalidate: 1
   }
 }
-
-export default function Blog({ postsToShow, page, showNext, tags }) {
+export default function Blog({ postsToShow, page, showNext, tags, topics }) {
   const { title, description } = useConfig()
 
   return (
@@ -45,7 +57,7 @@ export default function Blog({ postsToShow, page, showNext, tags }) {
         </div>
         
         <div className="md:w-1/4">
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">  {/* 添加 mb-4 边距 */}
             <h3 className="text-xl font-bold mb-4">Tags</h3>
             <div className="flex flex-wrap gap-2">
               {tags.map(tag => (
@@ -57,6 +69,27 @@ export default function Blog({ postsToShow, page, showNext, tags }) {
                            transition-colors"
                 >
                   {tag.name} ({tag.count})
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* 添加专题模块 */}
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <h3 className="text-xl font-bold mb-4">Topics</h3>
+            <div className="flex flex-col gap-3">
+              {topics.map(topic => (
+                <a
+                  key={topic.name}
+                  href={topic.url}
+                  className="block p-3 bg-white dark:bg-gray-700 rounded-lg hover:shadow-md transition-shadow"
+                >
+                  <div className="font-medium text-gray-900 dark:text-gray-100">
+                    {topic.name}
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {topic.description}
+                  </div>
                 </a>
               ))}
             </div>
