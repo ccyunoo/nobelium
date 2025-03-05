@@ -24,7 +24,7 @@ export async function getStaticProps() {
   const topics = [
     { name: 'AILAB', url: 'http://lab.ccyun.com/', description: 'xiaoyun的AI实验室' },
     { name: '趣图', url: 'http://1photo1month.com/lab/instagram/funny/', description: '收集有趣味的瞬间' },
-    { name: '花开', url: 'http://1photo1month.com/lab/instagram/warm/', description: '暖心的花朵' },
+    { name: '花开', url: 'http://1photo1month.com/lab/instagram/warm/', description: '收集暖心的花朵' },
     { name: '月图', url: 'http://1photo1month.com/', description: '一月一图记录生活' },
     { name: '写诗', url: 'http://1photo1month.com/lab/poetry/', description: '写字诗词字帖' },
     { name: '放空', url: 'http://1photo1month.com/lab/peace/', description: '简单轻音乐' },
