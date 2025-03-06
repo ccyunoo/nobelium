@@ -7,10 +7,14 @@ import { useConfig } from '@/lib/config'
 
 export async function getStaticProps() {
   const posts = await getAllPosts({ includePages: false })
-  const postsToShow = posts.slice(0, clientConfig.postsPerPage)
-  const totalPosts = posts.length
-  const showNext = totalPosts > clientConfig.postsPerPage
 
+  // 只在显示文章列表时过滤 newsletter
+  const filteredPostsToShow = posts
+    .filter(post => !post.tags?.includes('newsletter'))
+    .slice(0, clientConfig.postsPerPage)
+    
+  const totalPosts = posts.filter(post => !post.tags?.includes('newsletter')).length
+  const showNext = totalPosts > clientConfig.postsPerPage
   // 收集所有标签并统计数量
   const tagCount = {}
   posts.forEach(post => {
@@ -36,7 +40,7 @@ export async function getStaticProps() {
   return {
     props: {
       page: 1,
-      postsToShow,
+      postsToShow: filteredPostsToShow,  // 使用过滤后的文章列表
       showNext,
       tags,
       topics  // 添加到props中
