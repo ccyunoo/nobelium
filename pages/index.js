@@ -8,6 +8,8 @@ import { useConfig } from '@/lib/config'
 export async function getStaticProps() {
   const posts = await getAllPosts({ includePages: false })
 
+  //原首页显示全部数据 postsToShow 改成filteredPostsToShow 就过滤了 tag为newsletter的数据 
+  //  const postsToShow = posts.slice(0, clientConfig.postsPerPage) 
   // 只在显示文章列表时过滤 newsletter
   const filteredPostsToShow = posts
     .filter(post => !post.tags?.includes('newsletter'))
@@ -40,7 +42,7 @@ export async function getStaticProps() {
   return {
     props: {
       page: 1,
-      postsToShow: filteredPostsToShow,  // 使用过滤后的文章列表
+      postsToShow: filteredPostsToShow,  // 使用过滤后的文章列表。postsToShow,这样写就是显示全部的 
       showNext,
       tags,
       topics  // 添加到props中
