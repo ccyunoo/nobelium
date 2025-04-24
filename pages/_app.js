@@ -5,7 +5,6 @@ import App from 'next/app'
 import '@/styles/globals.css'
 import '@/styles/notion.css'
 import dynamic from 'next/dynamic'
-import { Analytics } from '@vercel/analytics/react'
 import loadLocale from '@/assets/i18n'
 import { ConfigProvider } from '@/lib/config'
 import { LocaleProvider } from '@/lib/locale'
@@ -31,7 +30,6 @@ export default function MyApp ({ Component, pageProps, config, locale }) {
             )}
             {process.env.VERCEL_ENV === 'production' && config?.analytics?.provider === 'ga' && <Gtag />}
             <Component {...pageProps} />
-            <Analytics />
           </>
         </ThemeProvider>
       </LocaleProvider>
@@ -52,6 +50,5 @@ MyApp.getInitialProps = async ctx => {
     locale: await loadLocale('basic', config.lang)
   }
 }
-
 
 
