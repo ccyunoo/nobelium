@@ -21,9 +21,9 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.11",
-    "axios": "^1.8.4",
+    "axios": "^0.21.1", 
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.7",
+    "dayjs": "1.10.7", 
     "feed": "^4.2.2",
     "gitalk": "^1.7.2",
     "mermaid": "^10.0.2",

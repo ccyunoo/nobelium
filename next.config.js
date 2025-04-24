@@ -18,16 +18,13 @@ module.exports = {
       }
     ]
   },
-  transpilePackages: ['dayjs']
-  // webpack: (config, { dev, isServer }) => {
-  //   // Replace React with Preact only in client production build
-  //   if (!dev && !isServer) {
-  //     Object.assign(config.resolve.alias, {
-  //       react: 'preact/compat',
-  //       'react-dom/test-utils': 'preact/test-utils',
-  //       'react-dom': 'preact/compat'
-  //     })
-  //   }
-  //   return config
-  // }
+  transpilePackages: ['dayjs'],
+  webpack: (config, { isServer }) => {
+    // 添加对 .d.ts 文件的处理
+    config.module.rules.push({
+      test: /\.d\.ts$/,
+      loader: 'ignore-loader'
+    });
+    return config;
+  }
 }
