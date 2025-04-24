@@ -21,9 +21,9 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.11",
-    "axios": "^0.21.1", 
+    "axios": "^0.21.1",
     "classnames": "^2.3.2",
-    "dayjs": "1.10.7", 
+    "dayjs": "1.10.7",
     "feed": "^4.2.2",
     "gitalk": "1.7.2",
     "mermaid": "^10.0.2",
@@ -43,10 +43,10 @@
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "eslint": "^8.36.0",
-    "eslint-config-next": "12.3.4", 
+    "eslint-config-next": "12.3.4",
     "next-sitemap": "^4.0.5",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.1"
+    "tailwindcss": "^3.4.17"
   },
   "bugs": {
     "url": "https://github.com/craigary/nobelium/issues",
