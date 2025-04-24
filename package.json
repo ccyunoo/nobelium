@@ -46,7 +46,7 @@
     "eslint-config-next": "12.3.4",
     "next-sitemap": "^4.0.5",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.3.1"
   },
   "bugs": {
     "url": "https://github.com/craigary/nobelium/issues",
