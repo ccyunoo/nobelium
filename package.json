@@ -51,5 +51,8 @@
   "bugs": {
     "url": "https://github.com/craigary/nobelium/issues",
     "email": "i@craigary.net"
+  },
+  "npm": {
+    "legacy-peer-deps": true
   }
 }
