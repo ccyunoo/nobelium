@@ -11,7 +11,8 @@ const NavBar = () => {
   const links = [
     { id: 0, name: locale.NAV.INDEX, to: BLOG.path || '/', show: true },
     { id: 1, name: locale.NAV.ABOUT, to: '/about', show: BLOG.showAbout },
-    { id: 2, name: 'AILAB', to: 'http://1photo1month.com/lab/', show: true, external: true }, // 新添加的外部链接
+    //{ id: 2, name: 'AILAB', to: 'http://1photo1month.com/lab/', show: true, external: true }, // 新添加的外部链接
+    { id: 2, name: 'STUDIO', to: 'https://1photo1month.com/lab/ai0/', show: true, external: true },
     //{ id: 3, name: 'AINEWS', to: 'https://www.ccyun.com/tag/newsletter', show: true, external: false }, 
     { id: 3, name: locale.NAV.RSS, to: '/feed', show: true },
     { id: 4, name: locale.NAV.SEARCH, to: '/search', show: true }
