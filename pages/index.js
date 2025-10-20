@@ -30,10 +30,9 @@ export async function getStaticProps() {
   const topics = [
     { name: 'AILAB', url: 'http://1photo1month.com/lab/', description: 'xiaoyun的AI实验室' },
     { name: '月图', url: 'http://1photo1month.com/', description: '一月一图记录生活' },
-    { name: '花开', url: 'http://1photo1month.com/lab/instagram/warm/', description: '收集暖心的花朵' },
-    { name: '趣图', url: 'http://1photo1month.com/lab/instagram/funny/', description: '收集有趣味的瞬间' },
     { name: '写诗', url: 'http://1photo1month.com/lab/poetry/', description: '写字诗词字帖' },
     { name: '放空', url: 'http://1photo1month.com/lab/peace/', description: '简单轻音乐' },
+    { name: '花开', url: 'https://1photo1month.com/p_paintings.php?image_id=368', description: '收集暖心的花朵' },
     { name: '有意思的人', url: 'https://www.ccyun.com/bloger', description: '分享友链' }
     
     // 可以继续添加更多专题
