@@ -71,20 +71,39 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
 }
 
 export async function getStaticPaths () {
-  const posts = await getAllPosts({ includePages: true })
-  return {
-    paths: posts.map(row => `${clientConfig.path}/${row.slug}`),
-    fallback: true
+  try {
+    const posts = (await getAllPosts({ includePages: true })) || []
+    // 保持字符串路径形式以兼容 BLOG.path 的自定义前缀
+    const basePath = clientConfig.path || ''
+    const paths = posts.map(row => `${basePath}/${row.slug}`)
+    return {
+      paths,
+      fallback: 'blocking'
+    }
+  } catch (err) {
+    console.error('getStaticPaths error:', err)
+    return {
+      paths: [],
+      fallback: 'blocking'
+    }
   }
 }
 
 export async function getStaticProps ({ params: { slug } }) {
-  const posts = await getAllPosts({ includePages: true })
+  const posts = (await getAllPosts({ includePages: true })) || []
   const post = posts.find(t => t.slug === slug)
 
   if (!post) return { notFound: true }
 
-  const blockMap = await getPostBlocks(post.id)
+  let blockMap = null
+  try {
+    blockMap = await getPostBlocks(post.id)
+  } catch (e) {
+    console.error('getPostBlocks error:', e)
+    // 该 slug 对应页面不可访问或拉取失败，返回 404，防止构建报错
+    return { notFound: true }
+  }
+
   const emailHash = createHash('md5')
     .update(clientConfig.email)
     .digest('hex')
@@ -93,6 +112,7 @@ export async function getStaticProps ({ params: { slug } }) {
 
   return {
     props: { post, blockMap, emailHash },
-    revalidate: 1
+    // 缓和再生成频率，可按需调整
+    revalidate: 60
   }
 }
