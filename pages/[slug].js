@@ -104,6 +104,11 @@ export async function getStaticProps ({ params: { slug } }) {
     return { notFound: true }
   }
 
+  if (!blockMap || !blockMap.block) {
+    console.error(`Skipping post "${slug}" because its Notion blocks are unavailable`)
+    return { notFound: true }
+  }
+
   const emailHash = createHash('md5')
     .update(clientConfig.email)
     .digest('hex')

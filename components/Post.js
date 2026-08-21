@@ -38,6 +38,10 @@ export default function Post (props) {
   const { post, blockMap, emailHash, fullWidth = false } = props
   const { dark } = useTheme()
 
+  if (!blockMap || !blockMap.block) {
+    return <article className="px-4 py-8">This post is temporarily unavailable.</article>
+  }
+
   return (
     <article className={cn('flex flex-col', fullWidth ? 'md:px-24' : 'items-center')}>
       <h1 className={cn(
