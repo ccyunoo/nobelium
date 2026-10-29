@@ -16,7 +16,8 @@ const Page = ({ postsToShow, page, showNext }) => {
 
 export async function getStaticProps(context) {
   const { page } = context.params; // Get Current Page No.
-  const posts = await getAllPosts({ includePages: false });
+  const posts = (await getAllPosts({ includePages: false }))
+    .filter(post => !post.tags?.includes("newsletter"));
   const postsToShow = posts.slice(config.postsPerPage * (page - 1), config.postsPerPage * page);
   const totalPosts = posts.length;
   const showNext = page * config.postsPerPage < totalPosts;
