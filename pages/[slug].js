@@ -3,6 +3,7 @@ import { clientConfig } from '@/lib/server/config'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
+import { getPostPageData } from '@/lib/notion/postPageData.cjs'
 import { useLocale } from '@/lib/locale'
 import { useConfig } from '@/lib/config'
 import { createHash } from 'crypto'
@@ -71,43 +72,14 @@ export default function BlogPost ({ post, blockMap, emailHash }) {
 }
 
 export async function getStaticPaths () {
-  try {
-    const posts = (await getAllPosts({ includePages: true })) || []
-    // 保持字符串路径形式以兼容 BLOG.path 的自定义前缀
-    const basePath = clientConfig.path || ''
-    const paths = posts.map(row => `${basePath}/${row.slug}`)
-    return {
-      paths,
-      fallback: 'blocking'
-    }
-  } catch (err) {
-    console.error('getStaticPaths error:', err)
-    return {
-      paths: [],
-      fallback: 'blocking'
-    }
-  }
+  // Avoid fetching all article bodies concurrently during deployment.
+  return { paths: [], fallback: 'blocking' }
 }
 
 export async function getStaticProps ({ params: { slug } }) {
-  const posts = (await getAllPosts({ includePages: true })) || []
-  const post = posts.find(t => t.slug === slug)
-
-  if (!post) return { notFound: true }
-
-  let blockMap = null
-  try {
-    blockMap = await getPostBlocks(post.id)
-  } catch (e) {
-    console.error('getPostBlocks error:', e)
-    // 该 slug 对应页面不可访问或拉取失败，返回 404，防止构建报错
-    return { notFound: true }
-  }
-
-  if (!blockMap || !blockMap.block) {
-    console.error(`Skipping post "${slug}" because its Notion blocks are unavailable`)
-    return { notFound: true }
-  }
+  const data = await getPostPageData(slug, getAllPosts, getPostBlocks)
+  if (!data) return { notFound: true, revalidate: 60 }
+  const { post, blockMap } = data
 
   const emailHash = createHash('md5')
     .update(clientConfig.email)
